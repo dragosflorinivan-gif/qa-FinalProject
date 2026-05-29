@@ -81,6 +81,41 @@ Datorită pluginului `allure-maven` integrat în `pom.xml`, poți porni serverul
 
 Proiectul conține un workflow complet funcțional de integrare continuă în fișierul `.github/workflows/test.yml`. La fiecare push sau pull request, GitHub instanțiază o mașină curată de Linux, activează cache-ul de Maven, instalează stabil Google Chrome și rulează testele în fundal (`Headless Mode`).
 
-### 📸 Captură de Ecran Pipeline Trecut (Verde)
-![Pipeline Green](https://github.com)
-*(Notă Student: Înlocuiește imaginea de mai sus cu link-ul sau poza decupată din contul tău de GitHub Actions unde se observă bifa ta verde trecută cu succes).*
+### 📸 Execute E2E Tests (Rosu)
+
+Testele vor pica la fiecare push pe git intrucat text-ul ce trebuie verificat, nu exista pe hapifyMe.
+
+Daca testul Failed controlat este scos, atunci prin CI/CD vom avea testele verzi.
+
+```
+Error:  Failures: 
+Error:    Element not found {by text: Acest text nu exista pe site-ul hapifyMe!}
+Expected: visible
+Screenshot: file:/home/runner/work/qa-FinalProject/qa-FinalProject/build/reports/tests/1779717403460.0.png
+Page source: file:/home/runner/work/qa-FinalProject/qa-FinalProject/build/reports/tests/1779717403460.0.html
+Timeout: 10 s.
+Caused by: NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":".//*/text()[normalize-space(translate(string(.), '
+[INFO] 
+Error:  Tests run: 5, Failures: 1, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  45.001 s
+[INFO] Finished at: 2026-05-25T13:56:44Z
+[INFO] ------------------------------------------------------------------------
+Error:  Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.2:test (default-test) on project qa_BDD_Cucumber: There are test failures.
+Error:  
+Error:  Please refer to /home/runner/work/qa-FinalProject/qa-FinalProject/target/surefire-reports for the individual test results.
+Error:  Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+Error:  -> [Help 1]
+Error:  
+Error:  To see the full stack trace of the errors, re-run Maven with the -e switch.
+Error:  Re-run Maven using the -X switch to enable full debug logging.
+Error:  
+Error:  For more information about the errors and possible solutions, please read the following articles:
+Error:  [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+Error: Process completed with exit code 1.
+
+
+```
